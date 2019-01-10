@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('includes.master')
 
 @section ('content')
 
