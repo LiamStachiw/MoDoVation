@@ -72,5 +72,9 @@ About pages:
 Settings:
     -Requirements listed on the page
     -Layout & Bootstrap
+
+Misc:
+    -Make sure it looks good on different browsers (Firefox, chrome, edge, Internet Explorer)
+    -Make sure it looks good on mobile
     
 
