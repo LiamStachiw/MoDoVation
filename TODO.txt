@@ -27,38 +27,50 @@ Home/Index Page:
 
 To Do List:
     -Requirements listed on the page
+    -Layout & Bootstrap
 
 Goals:
     -Requirements listed on the page
+    -Layout & Bootstrap
 
     Goal sub-page:
     -Requirements listed on the page
+    -Layout & Bootstrap
 
 Journals:
     -Requirements listed on the page
+    -Layout & Bootstrap
 
     Journal sub-page:
         -Requirements listed on the page
+        -Layout & Bootstrap
 
     unprompted journal sub-page:
         -Requirements listed on the page
+        -Layout & Bootstrap
 
     prompted journal sub-page:
         -Requirements listed on the page
+        -Layout & Bootstrap
 
 Profile:
     -password reset?
     -Requirements listed on the page
+    -Layout & Bootstrap
 
 About pages:
+    -contact us/support page? email us? going to dcmail emails
     Team:
         -Introductions about Keith & Liam
         -Requirements listed on the page
+        -Layout & Bootstrap
     Purpose:
         -Describe the purpose of the project. (Capstone at durham college CPA)
         -Requirements listed on the page
+        -Layout & Bootstrap
 
 Settings:
     -Requirements listed on the page
+    -Layout & Bootstrap
     
 
