@@ -2,6 +2,10 @@ Register/Login/Logout functionality:
     -When logged out, home page is Index, and sign out button becomes sign in - All other nav bar options are invisible. Just home button, and sign in.
     -When logged in, home page is to do list, and you can't access the index page
 
+Database:
+    -Database design created
+    -Database scripts created
+
 Routes:
     -setup routes for all pages
     -Sign out
