@@ -1,0 +1,60 @@
+Register/Login/Logout functionality:
+    -When logged out, home page is Index, and sign out button becomes sign in - All other nav bar options are invisible. Just home button, and sign in.
+    -When logged in, home page is to do list, and you can't access the index page
+
+Routes:
+    -setup routes for all pages
+    -Sign out
+
+Header:
+    -Nav bar buttons going to each page
+    -A unique logo icon
+    -Logo button redirects to index, but register button is not visible if the user is logged in
+    -Sign out button
+
+Footer:
+    -Links to pages (About, Settings, Preferences, etc.)
+    -A unique logo icon
+    -Year updated to current year
+
+Home/Index Page:
+    -Images on main MoDoVation tab?
+    -Images on each sub-tab? 
+
+To Do List:
+    -Requirements listed on the page
+
+Goals:
+    -Requirements listed on the page
+
+    Goal sub-page:
+    -Requirements listed on the page
+
+Journals:
+    -Requirements listed on the page
+
+    Journal sub-page:
+        -Requirements listed on the page
+
+    unprompted journal sub-page:
+        -Requirements listed on the page
+
+    prompted journal sub-page:
+        -Requirements listed on the page
+
+Profile:
+    -password reset?
+    -Requirements listed on the page
+
+About pages:
+    Team:
+        -Introductions about Keith & Liam
+        -Requirements listed on the page
+    Purpose:
+        -Describe the purpose of the project. (Capstone at durham college CPA)
+        -Requirements listed on the page
+
+Settings:
+    -Requirements listed on the page
+    
+
