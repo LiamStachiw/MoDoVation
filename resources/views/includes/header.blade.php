@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    
+    <!-- Custom styles for blog -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <!-- Custom styles for blog -->
+    <link href="/css/blog.css" rel="stylesheet">
+
     <style>
         .bd-placeholder-img {
           font-size: 1.125rem;
@@ -26,7 +32,7 @@
         }
       </style>
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for prodcuts template -->
     <link href="/css/product.css" rel="stylesheet">
   </head>
 
