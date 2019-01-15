@@ -10,6 +10,7 @@
         <li>Add tasks</li>
         <li>Delete tasks</li>
         <li>set tasks to specific dates</li>
+        <li>Link to archived tasks page - will show all tasks that have been completed, rather than deleting them</li>
     </ul>
 </p>
 

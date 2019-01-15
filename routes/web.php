@@ -23,9 +23,7 @@ Route::get('/', function () {
 * TO DO LIST ROUTES *
 *********************/
 
-Route::get('/todo', function () {
-    return view('/To Do List/todolist');
-});
+Route::get('/todo', 'TasksController@index');
 
 
 /***************
@@ -43,21 +41,15 @@ Route::get('/goal', function () {
 /******************
 * JOURNALS ROUTES *
 *******************/
-Route::get('/journals', function () {
-    return view('/Journals/journals');
-});
+Route::get('/journals', 'JournalsController@index');
 
-Route::get('/journal', function () {
-    return view('/Journals/journal');
-});
+Route::get('/journal', 'JournalsController@journal');
 
-Route::get('/promptedJournal', function () {
-    return view('/Journals/promptedJournal');
-});
+Route::get('/promptedJournal', 'JournalsController@prompted');
 
-Route::get('/unpromptedJournal', function () {
-    return view('/Journals/unpromptedJournal');
-});
+Route::get('/unpromptedJournal', 'JournalsController@unprompted');
+
+Route::post('journals', 'JournalsController@storeUnprompted');
 
 /*****************
 * PROFILE ROUTES *
