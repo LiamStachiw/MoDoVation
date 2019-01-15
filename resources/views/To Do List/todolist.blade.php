@@ -14,5 +14,13 @@
     </ul>
 </p>
 
+<!-- 
+    For each task
+        create a  grid row with the task, associated goal, and checkbox
+    end for
+
+    Extra grid row on bottom to create task, update to database, refresh
+-->
+
 
 @endsection

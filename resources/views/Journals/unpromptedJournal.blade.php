@@ -2,7 +2,7 @@
 
 @section ('content')
 
-<div class="col-sm-8 blog-main">
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3  bg-light">
 
     <h1>Free-form Journal Entry</h1>
 
