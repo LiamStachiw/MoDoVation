@@ -71,6 +71,10 @@ Route::get('/settings', function () {
 * ABOUT ROUTES *
 ****************/
 
+Route::get('/about', function () {
+    return view('/About/about');
+});
+
 Route::get('/purpose', function () {
     return view('/About/purpose');
 });

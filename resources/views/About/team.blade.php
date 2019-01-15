@@ -2,16 +2,19 @@
 
 @section ('content')
 
-<h1>Team Page</h1>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
 
-<p>
-    This page will give short bios about who made the site (Liam & Keith)
-    <ul>
-        <li>Keith's info/intro</li>
-        <li>Liam's info/intro</li>
-    </ul>
+    <h1>Our Team</h1>
 
-</p>
+        <hr>
+
+        <h4>Keith Mathur & Liam Stachiw</h4>
+
+        <br>
+
+        <p>Third year Computer Programmer Analyst students at Durham College</p>
+
+    </div>
 
 
 @endsection
