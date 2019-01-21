@@ -8,24 +8,28 @@
 
     <hr>
 
+    @include('includes.errors')
+
     <form method="POST" action="/journals">
 
         {{ csrf_field() }}
 
         <div class="form-group">
           <label for="title">Title:</label>
-          <input type="text" class="form-control" id="title" name="title">
+          <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
         </div>
 
         <div class="form-group">
           <label for="body">Body:</label>
 
-          <textarea name="body" id="body" class="form-control"></textarea>
+          <textarea class="form-control" id="body" name="body" > {{ old('body') }} </textarea>
         </div>
 
         <button type="submit" class="btn btn-outline-secondary">Publish</button>
 
       </form>
+
+      
 
 </div>
 

@@ -41,15 +41,18 @@ Route::get('/goal', function () {
 /******************
 * JOURNALS ROUTES *
 *******************/
-Route::get('/journals', 'JournalsController@index');
 
-Route::get('/journal', 'JournalsController@journal');
+Route::get('/journal/{journal}', 'JournalsController@journal');
 
 Route::get('/promptedJournal', 'JournalsController@prompted');
 
 Route::get('/unpromptedJournal', 'JournalsController@unprompted');
 
-Route::post('journals', 'JournalsController@storeUnprompted');
+Route::post('/journals', 'JournalsController@storeUnprompted');
+
+Route::get('/journals', 'JournalsController@index');
+
+
 
 /*****************
 * PROFILE ROUTES *

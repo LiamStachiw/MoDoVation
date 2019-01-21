@@ -6,6 +6,8 @@
 
     <h1 align ="center">Journals Page</h1>
 
+    <hr>
+
     <p>
         This page serves as the journal menu
         <br>It allows you to:
@@ -17,11 +19,22 @@
             <li>Update/Edit entry</li>
         </ul>
 
+        <hr>
+
+        @foreach ($journals as $journal)
+
+          @include('Journals.journalEntry')
+            
+        @endforeach
+        
+
         <button onclick="location.href='{{ url('promptedJournal') }}'">Create prompted journal</button>
         <button onclick="location.href='{{ url('unpromptedJournal') }}'">Create unprompted journal</button>
         <button onclick="location.href='{{ url('journal') }}'">Specific Journal</button>
 
   </div>
+
+  
 
 
 @endsection

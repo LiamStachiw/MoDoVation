@@ -8,12 +8,9 @@ class JournalsController extends Controller
 {
     public function index()
     {
-        return view('/Journals/journals');
-    }
+        $journals = Journals::latest()->get();
 
-    public function journal()
-    {
-        return view('/Journals/journal');
+        return view('/Journals/journals', compact('journals'));
     }
 
     public function prompted()
@@ -26,9 +23,21 @@ class JournalsController extends Controller
         return view('/Journals/unpromptedJournal');
     }
 
+    public function journal(Journals $journal)
+    {
+        return view('/Journals/journal', compact('journal'));
+    }
+
     //Store an unprompted journal entry to the database
     public function storeUnprompted()
     {
+
+        $this->validate(request(), [
+
+            'title' => 'required',
+
+            'body' => 'required'
+        ]);
 
         //send the request data for title and body to the database
         Journals::create(request(['title', 'body']));
