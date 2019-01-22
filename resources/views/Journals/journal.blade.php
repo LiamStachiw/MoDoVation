@@ -23,28 +23,42 @@
     <hr>
 
     <h1>{{ $journal->title }}</h1>
-
+    <strong>What are you initial thoughts on your progress since your last journal entry?</strong><br>
     {{ $journal->body }}
 
     <br><br>
-
-    {{ $journal->prompt1 }}
-
-    <br><br>
-
-    {{ $journal->prompt2 }}
+    @if( $journal->prompt1 != NULL)
+        <strong>What have you been doing well?</strong><br>
+        {{ $journal->prompt1 }}
+    @endif
 
     <br><br>
 
-    {{ $journal->prompt3 }}
+    @if( $journal->prompt2 != NULL)
+        <strong>How will you continue to do this well?</strong><br>
+        {{ $journal->prompt2 }}
+    @endif
 
     <br><br>
 
-    {{ $journal->prompt4 }}
+    @if( $journal->prompt3 != NULL)
+        <strong>What needs improvement?</strong><br>
+        {{ $journal->prompt3 }}
+    @endif
 
     <br><br>
 
-    {{ $journal->prompt5 }}
+    @if( $journal->prompt4 != NULL)
+        <strong>How do you plan to improve this?</strong><br>
+        {{ $journal->prompt4 }}
+    @endif
+
+    <br><br>
+
+    @if( $journal->prompt5 != NULL)
+        <strong>Are you on track to achieve your goals?</strong><br>
+        {{ $journal->prompt5 }}
+    @endif
 
 </div>
 
