@@ -15,8 +15,12 @@ class CreateJournalsTable extends Migration
     {
         Schema::create('journals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
             $table->string('body');
+            $table->string('prompt1')->nullable();
+            $table->string('prompt2')->nullable();
+            $table->string('prompt3')->nullable();
+            $table->string('prompt4')->nullable();
+            $table->string('prompt5')->nullable();
             $table->timestamps();
 
         });

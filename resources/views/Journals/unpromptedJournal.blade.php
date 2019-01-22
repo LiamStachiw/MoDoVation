@@ -15,12 +15,7 @@
         {{ csrf_field() }}
 
         <div class="form-group">
-          <label for="title">Title:</label>
-          <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
-        </div>
-
-        <div class="form-group">
-          <label for="body">Body:</label>
+          <label for="body">Reflect on your progress:</label>
 
           <textarea class="form-control" id="body" name="body" > {{ old('body') }} </textarea>
         </div>

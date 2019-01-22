@@ -50,6 +50,8 @@ Route::get('/unpromptedJournal', 'JournalsController@unprompted');
 
 Route::post('/journals', 'JournalsController@storeUnprompted');
 
+Route::post('/journals', 'JournalsController@storePrompted');
+
 Route::get('/journals', 'JournalsController@index');
 
 

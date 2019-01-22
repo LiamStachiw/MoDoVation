@@ -2,10 +2,11 @@
 
 @section ('content')
 
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+  <div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light ">
 
-    <h1 align ="center">Journals Page</h1>
+    <h1 align ="center">Journals</h1>
 
+    <!--
     <hr>
 
     <p>
@@ -19,6 +20,13 @@
             <li>Update/Edit entry</li>
         </ul>
 
+      -->
+
+        <hr>
+
+        <button class="btn btn-outline-secondary" onclick="location.href='{{ url('promptedJournal') }}'">New prompted entry</button>
+        <button class="btn btn-outline-secondary" onclick="location.href='{{ url('unpromptedJournal') }}'">New free-form entry</button>
+
         <hr>
 
         @foreach ($journals as $journal)
@@ -28,9 +36,7 @@
         @endforeach
         
 
-        <button onclick="location.href='{{ url('promptedJournal') }}'">Create prompted journal</button>
-        <button onclick="location.href='{{ url('unpromptedJournal') }}'">Create unprompted journal</button>
-        <button onclick="location.href='{{ url('journal') }}'">Specific Journal</button>
+        
 
   </div>
 

@@ -34,13 +34,28 @@ class JournalsController extends Controller
 
         $this->validate(request(), [
 
-            'title' => 'required',
-
             'body' => 'required'
         ]);
 
         //send the request data for title and body to the database
-        Journals::create(request(['title', 'body']));
+        Journals::create(request(['body']));
+
+        //redirect to the journals home page
+        return redirect('/journals');
+    }
+
+    //Store a prompted journal entry to the database
+    public function storePrompted()
+    {
+
+        $this->validate(request(), [
+
+            'body' => 'required'
+            
+        ]);
+
+        //send the request data for body & prompts to the database
+        Journals::create(request(['body', 'prompt1', 'prompt2', 'prompt3', 'prompt4', 'prompt5']));
 
         //redirect to the journals home page
         return redirect('/journals');

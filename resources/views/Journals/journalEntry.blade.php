@@ -1,20 +1,16 @@
 <!-- Template for a journal entry to display on the journals page-->
 
-<div class="blog-post">
+<div class="container d-flex flex-column flex-md-row justify-content-between">
     
-    <h2 class="blog-post-title"> 
+    <h4> 
 
         <a href="/journal/{{ $journal->id }} ">
         
-            {{ $journal->title }} 
+            {{ $journal->created_at->toFormattedDateString() }} 
 
         </a>
 
-    </h2>
-
-    <p class="blog-post-meta"> 
-        {{ $journal->created_at->toFormattedDateString() }} 
-    </p>
+    </h4>
 
     {{ $journal-> body }}
 
