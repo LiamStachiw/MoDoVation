@@ -35,12 +35,6 @@
             
         @endforeach
         
-
-        
-
   </div>
-
-  
-
 
 @endsection

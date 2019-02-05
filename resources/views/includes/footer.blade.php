@@ -1,4 +1,8 @@
+
+
 <footer class="container py-5">
+
+    <hr>
     <div class="row">
       <div class="col-12 col-md">
       <img src="/images/MDVLogoAlt.png" alt="Logo" width="66" height="24">
