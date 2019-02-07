@@ -8,7 +8,21 @@ class TasksController extends Controller
 {
     public function index()
     {
-        return view('/To Do List/todolist');
+        $tasks = Tasks::latest()->get();
+
+        return view('/To Do List/todolist', compact('tasks'));
+    }
+
+    //form for adding new tasks
+    public function add()
+    {
+        return view('To Do List/taskAdd');
+    }
+
+    //redirect to specific task detailed view - SHOW the task
+    public function task(Tasks $task)
+    {
+        return view('/To Do List/task', compact('task'));
     }
 
     //Store a task to the database
@@ -24,6 +38,6 @@ class TasksController extends Controller
         Tasks::create(request(['taskName']));
 
         //redirect to the journals home page
-        return redirect('/todolist');
+        return redirect('/todo');
     }
 }

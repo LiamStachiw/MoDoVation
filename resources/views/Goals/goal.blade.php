@@ -2,6 +2,7 @@
 
 @section ('content')
 
+<!--
 <h1>Goal Page:</h1>
 
 <p>
@@ -18,6 +19,6 @@
     </ul>
 
 </p>
-
+-->
 
 @endsection

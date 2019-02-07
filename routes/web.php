@@ -23,6 +23,12 @@ Route::get('/', function () {
 * TO DO LIST ROUTES *
 *********************/
 
+Route::get('/task/{task}', 'TasksController@task');
+
+Route::get('/taskAdd', 'TasksController@add');
+
+Route::post('/todo', 'TasksController@storeTask');
+
 Route::get('/todo', 'TasksController@index');
 
 

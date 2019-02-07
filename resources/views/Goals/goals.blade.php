@@ -2,6 +2,7 @@
 
 @section ('content')
 
+<!-- 
 <h1>Goals Page</h1>
 
 <p>
@@ -21,15 +22,13 @@
     This will also link to the following page:
     <button onclick="location.href='{{ url('goal') }}'">Specific Goal-Page</button>
 
-    <!-- 
+    
     For each goal
         create a grid (or other control) row with the goal, streakcount, totalcount
     end for
 
     Extra grid row on bottom to create task, update to database, refresh
--->
-
 </p>
-
+-->
 
 @endsection
