@@ -2,6 +2,52 @@
 
 @section ('content')
 
+<div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light ">
+
+    <h1 align ="center">Goal View</h1>
+
+    <hr>
+
+    {{-- 
+        TODO: Come up with a way to 'check off' tasks within a goal.
+        Checking off all tasks will increase the total counter by 1.
+        if it has been less than 24 hours from the last completion, 
+        checking off will increase streak by 1.
+    --}}
+
+    <h1> {{ $goal->goalName }} </h1>
+    <i>Your current streak for this goal is {{ $goal->streakDays }} days.</i><br>
+    <i>Your total days completed for this goal is {{ $goal->totalDays }} days.</i>
+
+    <ul>
+        @foreach ($tasks as $task) 
+            @if($task->goal_id == $goal->id)
+                @include('\To Do List.taskEntry')
+            @endif 
+        @endforeach
+    </ul>
+
+    <hr>
+
+    <h3>Add a task to this goal.</h3>
+
+    <form method="POST" action="/goal/{{ $goal->id }}/task">
+
+        {{ csrf_field() }}
+
+        <div class="form-group">
+          <label for="taskName">Task Name:</label>
+
+          <input class="form-control" id="taskName" name="taskName"/>
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary">Add This Task</button>
+
+    </form>
+
+</div>
+
+
 <!--
 <h1>Goal Page:</h1>
 

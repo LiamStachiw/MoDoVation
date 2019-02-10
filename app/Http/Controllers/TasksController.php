@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tasks;
+use App\Goals;
 
 class TasksController extends Controller
 {
@@ -21,8 +22,9 @@ class TasksController extends Controller
 
     //redirect to specific task detailed view - SHOW the task
     public function task(Tasks $task)
-    {
-        return view('/To Do List/task', compact('task'));
+    {   
+        $goal = Goals::where('id', $task->goal_id)->first();
+        return view('/To Do List/task', compact('task', 'goal'));
     }
 
     //Store a task to the database
@@ -39,5 +41,22 @@ class TasksController extends Controller
 
         //redirect to the journals home page
         return redirect('/todo');
+    }
+
+    public function taskToGoal(Goals $goal)
+    {
+
+        $this->validate(request(), [
+
+            'taskName' => 'required'
+        ]);
+
+        Tasks::create([
+            'taskName' => request('taskName'),
+            'goal_id' => $goal->id
+        ]);
+
+        return back();
+
     }
 }

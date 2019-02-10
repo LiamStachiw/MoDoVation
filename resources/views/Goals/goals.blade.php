@@ -2,6 +2,24 @@
 
 @section ('content')
 
+<div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light ">
+
+    <h1 align ="center">Your Goals</h1>
+
+    <hr>
+
+    <button class="btn btn-outline-secondary" onclick="location.href='{{ url('goalAdd') }}'">Add a Goal</button>
+
+    <hr>
+
+    <ul>
+        @foreach ($goals as $goal)
+            @include('Goals.goalEntry')
+        @endforeach
+    </ul>
+
+</div>
+
 <!-- 
 <h1>Goals Page</h1>
 

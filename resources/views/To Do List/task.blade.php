@@ -9,6 +9,11 @@
     <hr>
 
     <h1> {{ $task->taskName }} </h1>
+    @if($task->goal_id == NULL)
+        <i>This task is not associated with a goal</i>
+    @else
+<i>This task is associated with the goal: <a href="/goal/{{ $task->goal_id }}">{{ $goal->goalName }}</a></i>
+    @endif
 
 </div>
 

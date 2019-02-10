@@ -16,7 +16,7 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
             // $table->integer('user_id');
-            // $table->integer('goal_id'); //can be null if not associated with a goal
+            $table->integer('goal_id')->nullable(); //can be null if not associated with a goal
             $table->string('taskName');
             // $table->boolean('isComplete')->default(false);
             // $table->integer('taskOrder'); //Where the task shows up in the list (is it the first item, the third item in the list? user can reorder)

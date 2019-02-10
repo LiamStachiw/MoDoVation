@@ -29,6 +29,8 @@ Route::get('/taskAdd', 'TasksController@add');
 
 Route::post('/todo', 'TasksController@storeTask');
 
+Route::post('/goal/{goal}/task', 'TasksController@taskToGoal');
+
 Route::get('/todo', 'TasksController@index');
 
 
@@ -36,13 +38,13 @@ Route::get('/todo', 'TasksController@index');
 * GOALS ROUTES *
 ****************/
 
-Route::get('/goals', function () {
-    return view('/Goals/goals');
-});
+Route::get('/goal/{goal}', 'GoalsController@goal');
 
-Route::get('/goal', function () {
-    return view('/Goals/goal');
-});
+Route::get('/goalAdd', 'GoalsController@add');
+
+Route::post('/goalAdd', 'GoalsController@storeGoal');
+
+Route::get('/goals', 'GoalsController@index');
 
 /******************
 * JOURNALS ROUTES *
