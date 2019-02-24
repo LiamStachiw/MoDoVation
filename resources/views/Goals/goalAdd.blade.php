@@ -12,7 +12,7 @@
 
     <form method="POST" action="/goalAdd">
 
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group">
           <label for="goalName">Goal Name:</label>

@@ -60,4 +60,31 @@ class JournalsController extends Controller
         //redirect to the journals home page
         return redirect('/journals');
     }
+
+    public function edit(Journals $journal)
+    {
+        return view('journals.edit', compact('journal'));
+    }
+
+    public function update(Journals $journal)
+    {
+
+        $this->validate(request(), [
+
+            'body' => 'required'
+            
+        ]);
+
+        $journal->update(request(['body', 'prompt1', 'prompt2', 'prompt3', 'prompt4', 'prompt5']));
+        
+        return redirect('/journals');
+
+    }
+
+    public function destroy(Journals $journal)
+    {
+        $journal->delete();
+
+        return redirect('/journals');
+    }
 }

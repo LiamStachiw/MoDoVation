@@ -4,7 +4,7 @@
 
 <div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
 
-    <h1>Journal Entry</h1>
+    <h1>Journal Entry</h1> 
 
     <p>{{ $journal->created_at->toFormattedDateString() }} </p>
 
@@ -60,7 +60,13 @@
         {{ $journal->prompt5 }}
     @endif
 
+    <form action="/journal/{{$journal->id}}/edit">
+        <button type="submit" class="btn btn-outline-secondary">Edit This Journal</button>
+    </form>
+    
 </div>
+
+
 
 
 @endsection

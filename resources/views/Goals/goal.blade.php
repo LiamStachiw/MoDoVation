@@ -27,13 +27,17 @@
         @endforeach
     </ul>
 
+    <form action="/goal/{{$goal->id}}/edit">
+        <button type="submit" class="btn btn-outline-secondary">Edit This Goal</button>
+    </form>
+
     <hr>
 
     <h3>Add a task to this goal.</h3>
 
     <form method="POST" action="/goal/{{ $goal->id }}/task">
 
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group">
           <label for="taskName">Task Name:</label>

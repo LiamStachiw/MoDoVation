@@ -12,8 +12,14 @@
     @if($task->goal_id == NULL)
         <i>This task is not associated with a goal</i>
     @else
-<i>This task is associated with the goal: <a href="/goal/{{ $task->goal_id }}">{{ $goal->goalName }}</a></i>
+        <i>This task is associated with the goal: <a href="/goal/{{ $task->goal_id }}">{{ $goal->goalName }}</a></i>
     @endif
+
+    <br><br>
+
+    <form action="/task/{{$task->id}}/edit">
+        <button type="submit" class="btn btn-outline-secondary">Edit This Task</button>
+    </form>
 
 </div>
 

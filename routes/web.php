@@ -33,6 +33,12 @@ Route::post('/goal/{goal}/task', 'TasksController@taskToGoal');
 
 Route::get('/todo', 'TasksController@index');
 
+Route::get('/task/{task}/edit', 'TasksController@edit');
+
+Route::patch('/task/{task}', 'TasksController@update');
+
+Route::delete('/task/{task}', 'TasksController@destroy');
+
 
 /***************
 * GOALS ROUTES *
@@ -45,6 +51,12 @@ Route::get('/goalAdd', 'GoalsController@add');
 Route::post('/goalAdd', 'GoalsController@storeGoal');
 
 Route::get('/goals', 'GoalsController@index');
+
+Route::get('/goal/{goal}/edit', 'GoalsController@edit');
+
+Route::patch('/goal/{goal}', 'GoalsController@update');
+
+Route::delete('/goal/{goal}', 'GoalsController@destroy');
 
 /******************
 * JOURNALS ROUTES *
@@ -61,6 +73,12 @@ Route::post('/journals', 'JournalsController@storeUnprompted');
 Route::post('/journals', 'JournalsController@storePrompted');
 
 Route::get('/journals', 'JournalsController@index');
+
+Route::get('/journal/{journal}/edit', 'JournalsController@edit');
+
+Route::patch('/journal/{journal}', 'JournalsController@update');
+
+Route::delete('/journal/{journal}', 'JournalsController@destroy');
 
 
 

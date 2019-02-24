@@ -26,7 +26,7 @@
 
     <form method="POST" action="/journals">
 
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group">
           <label for="body">What are you initial thoughts on your progress since your last journal entry?</label>
