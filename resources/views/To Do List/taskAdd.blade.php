@@ -12,7 +12,7 @@
 
     <form method="POST" action="/todo">
 
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group">
           <label for="taskName">Task Name:</label>

@@ -59,4 +59,30 @@ class TasksController extends Controller
         return back();
 
     }
+
+    public function edit(Tasks $task)
+    {
+        return view('To Do List.edit', compact('task'));
+    }
+
+    public function update(Tasks $task)
+    {
+
+        $this->validate(request(), [
+
+            'taskName' => 'required'
+        ]);
+
+        $task->update(request(['taskName']));
+        
+        return redirect('/todo');
+
+    }
+
+    public function destroy(Tasks $task)
+    {
+        $task->delete();
+
+        return redirect('/todo');
+    }
 }

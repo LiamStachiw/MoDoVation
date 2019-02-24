@@ -12,7 +12,7 @@
 
     <form method="POST" action="/journals">
 
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group">
           <label for="body">Reflect on your progress:</label>

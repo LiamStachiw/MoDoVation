@@ -23,7 +23,6 @@ class GoalsController extends Controller
     //redirect to specific goal detailed view - SHOW the goal
     public function goal(Goals $goal)
     {
-
         $tasks = Tasks::all();
 
         return view('/Goals/goal', compact('goal', 'tasks'));
@@ -45,7 +44,36 @@ class GoalsController extends Controller
             'totalDays' => 0
         ]);
 
-        //redirect to the journals home page
+        //redirect to the goals home page
+        return redirect('/goals');
+    }
+
+    public function edit(Goals $goal)
+    {
+        return view('goals.edit', compact('goal'));
+    }
+
+    public function update(Goals $goal)
+    {
+
+        $this->validate(request(), [
+
+            'goalName' => 'required'
+        ]);
+
+        $goal->update(request(['goalName']));
+        
+        return redirect('/goals');
+
+    }
+
+    public function destroy(Goals $goal)
+    {
+
+        Tasks::where('goal_id', $goal->id)->delete();
+
+        $goal->delete();
+
         return redirect('/goals');
     }
 }
