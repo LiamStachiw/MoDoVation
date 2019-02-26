@@ -47,6 +47,23 @@
             <a class="py-2 d-none d-md-inline-block" href="/journals">Journals</a>
             <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
             <a class="py-2 d-none d-md-inline-block" href="/settings">Settings</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Sign out</a>
+
+            @guest
+              <a class="py-2 d-none d-md-inline-block" href="{{ route('login') }}">{{ __('Login') }}</a>
+              @if (Route::has('register'))
+                <a class="py-2 d-none d-md-inline-block" href="{{ route('register') }}">{{ __('Register') }}</a>
+              @endif
+              @else
+              <a class="py-2 d-none d-md-inline-block" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            @endguest
+            
           </div>
         </nav>
