@@ -4,28 +4,53 @@ namespace App\Http\Controllers;
 
 use App\Goals;
 use App\Tasks;
+use Auth;
 
 class GoalsController extends Controller
 {
     public function index()
     {
-        $goals = Goals::latest()->get();
+        if(Auth::check()){
 
-        return view('/Goals/goals', compact('goals'));
+            $goals = Goals::latest()->get();
+
+            return view('/Goals/goals', compact('goals'));
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     //form for adding new goals
     public function add()
     {
-        return view('Goals/goalAdd');
+        if(Auth::check()){
+
+            return view('Goals/goalAdd');
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     //redirect to specific goal detailed view - SHOW the goal
     public function goal(Goals $goal)
     {
-        $tasks = Tasks::all();
+        if(Auth::check()){
+            if($goal->user_id == Auth::id()){
 
-        return view('/Goals/goal', compact('goal', 'tasks'));
+                $tasks = Tasks::all();
+
+                return view('/Goals/goal', compact('goal', 'tasks'));
+            }else{
+                $goals = Goals::latest()->get();
+
+                return view('/Goals/goals', compact('goals'));
+            }
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     //Store a goal to the database
@@ -40,6 +65,7 @@ class GoalsController extends Controller
         //send the request data for title and body to the database
         Goals::create([
             'goalName' => request('goalName'),
+            'user_id' => Auth::id(),
             'streakDays' => 0,
             'totalDays' => 0
         ]);
@@ -50,7 +76,13 @@ class GoalsController extends Controller
 
     public function edit(Goals $goal)
     {
-        return view('goals.edit', compact('goal'));
+        if(Auth::check()){
+
+            return view('goals.edit', compact('goal'));
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     public function update(Goals $goal)

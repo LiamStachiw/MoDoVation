@@ -14,7 +14,9 @@
 
     <ul>
         @foreach ($tasks as $task)
-            @include('To Do List.taskEntry')
+            @if($task->user_id == Auth::id())
+                @include('To Do List.taskEntry')
+            @endif
         @endforeach
     </ul>
 

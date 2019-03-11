@@ -64,6 +64,10 @@
                   @csrf
               </form>
             @endguest
+
+            @if(Auth::user())
+            <a class="py-2 d-none d-md-inline-block" href="/home">{{Auth::user()->name}}</a>
+            @endif
             
           </div>
         </nav>

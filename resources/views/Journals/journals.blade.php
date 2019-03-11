@@ -30,9 +30,9 @@
         <hr>
 
         @foreach ($journals as $journal)
-
-          @include('Journals.journalEntry')
-            
+          @if($journal->user_id == Auth::id())
+            @include('Journals.journalEntry')
+          @endif  
         @endforeach
         
   </div>

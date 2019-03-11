@@ -4,27 +4,51 @@ namespace App\Http\Controllers;
 
 use App\Tasks;
 use App\Goals;
+use Auth;
 
 class TasksController extends Controller
 {
     public function index()
     {
-        $tasks = Tasks::latest()->get();
+        if(Auth::check()){
+            $tasks = Tasks::latest()->get();
 
-        return view('/To Do List/todolist', compact('tasks'));
+            return view('/To Do List/todolist', compact('tasks'));
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     //form for adding new tasks
     public function add()
     {
-        return view('To Do List/taskAdd');
+        if(Auth::check()){
+
+            return view('To Do List/taskAdd');
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     //redirect to specific task detailed view - SHOW the task
     public function task(Tasks $task)
     {   
-        $goal = Goals::where('id', $task->goal_id)->first();
-        return view('/To Do List/task', compact('task', 'goal'));
+        if(Auth::check()){
+            if($task->user_id == Auth::id()){
+
+                $goal = Goals::where('id', $task->goal_id)->first();
+                return view('/To Do List/task', compact('task', 'goal'));
+            }else{
+                $tasks = Tasks::latest()->get();
+
+                return view('/To Do List/todolist', compact('tasks'));
+            }
+        
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     //Store a task to the database
@@ -34,10 +58,14 @@ class TasksController extends Controller
         $this->validate(request(), [
 
             'taskName' => 'required'
+
         ]);
 
         //send the request data for title and body to the database
-        Tasks::create(request(['taskName']));
+        Tasks::create([
+            'taskName' => request('taskName'),
+            'user_id' => Auth::id()
+        ]);
 
         //redirect to the journals home page
         return redirect('/todo');
@@ -53,7 +81,8 @@ class TasksController extends Controller
 
         Tasks::create([
             'taskName' => request('taskName'),
-            'goal_id' => $goal->id
+            'goal_id' => $goal->id,
+            'user_id' => Auth::id()
         ]);
 
         return back();
@@ -62,7 +91,13 @@ class TasksController extends Controller
 
     public function edit(Tasks $task)
     {
-        return view('To Do List.edit', compact('task'));
+        if(Auth::check()){
+
+            return view('To Do List.edit', compact('task'));
+
+        }else{
+            return view('/auth/login');        
+        }
     }
 
     public function update(Tasks $task)

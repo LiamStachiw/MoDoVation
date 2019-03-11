@@ -14,7 +14,9 @@
 
     <ul>
         @foreach ($goals as $goal)
-            @include('Goals.goalEntry')
+            @if($goal->user_id == Auth::id())
+                @include('Goals.goalEntry')
+            @endif
         @endforeach
     </ul>
 
