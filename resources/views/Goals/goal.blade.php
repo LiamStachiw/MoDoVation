@@ -18,14 +18,20 @@
     <h1> {{ $goal->goalName }} </h1>
     <i>Your current streak for this goal is {{ $goal->streakDays }} days.</i><br>
     <i>Your total days completed for this goal is {{ $goal->totalDays }} days.</i>
-
-    <ul>
-        @foreach ($tasks as $task) 
-            @if($task->goal_id == $goal->id)
-                @include('\To Do List.taskEntry')
-            @endif 
-        @endforeach
-    </ul>
+    <div class="">
+        <form method="POST" id="{{$goal->id}}" class="listOfTasks" action="/goal/{{$goal->id}}/resetGoal">
+            @csrf
+            @foreach ($tasks as $task) 
+                @if($task->goal_id == $goal->id)
+                    @include('\To Do List.taskEntry')
+                @endif 
+            @endforeach
+            @if($goal->isComplete == 1)
+                <button type="submit" class="btn btn-outline-primary">Reset This Goal</button>
+            @endif
+        </form>
+    </div>
+    <hr>
 
     <form action="/goal/{{$goal->id}}/edit">
         <button type="submit" class="btn btn-outline-secondary">Edit This Goal</button>

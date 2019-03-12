@@ -108,4 +108,55 @@ class GoalsController extends Controller
 
         return redirect('/goals');
     }
+
+    public function updateTasks(Goals $goal)
+    {
+        if(isset($_GET['taskId'])){
+            $allDone = true;
+            $task = Tasks::find($_GET['taskId']);
+
+            $task->update(['isComplete' => $_GET['checked']]);
+
+            $allTasks = Tasks::where('goal_id', $goal->id)->get();
+
+            foreach($allTasks as $subTask)
+            {
+                if($subTask->isComplete == 0)
+                {
+                    $allDone = false;
+                }
+            }
+
+            if($allDone == true)
+            {
+                $goal->update([
+                    'totalDays' => $goal->totalDays + 1,
+                    'isComplete' => 1]);
+
+                foreach($allTasks as $subTask)
+                {
+                    $subTask->update(['isDisabled' => 1]);
+                }
+            }
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function resetGoal(Goals $goal)
+    {
+
+        $allTasks = Tasks::where('goal_id', $goal->id)->get();
+
+        foreach($allTasks as $subTask)
+        {
+            $subTask->update(['isDisabled' => 0]);
+        }
+        
+        $goal->update([
+            'totalDays' => $goal->totalDays - 1,
+            'isComplete' => 0]);
+
+        return back();
+    }
 }

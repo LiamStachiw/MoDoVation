@@ -17,6 +17,7 @@ class CreateGoalsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('goalName');
+            $table->boolean('isComplete')->default(0);
             $table->integer('streakDays');
             $table->integer('totalDays');
             $table->timestamps();

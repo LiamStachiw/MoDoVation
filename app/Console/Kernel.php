@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +27,15 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->call(function(){
+
+            DB::table('tasks')->update([
+                'isComplete' => 0,
+                'isDisabled' => 0
+            ]);
+            DB::table('goals')->update(['isComplete' => 0]);
+
+        })->daily();//->everyMinute(); for testing purposes ONLY
     }
 
     /**

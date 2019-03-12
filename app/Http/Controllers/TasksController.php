@@ -120,4 +120,15 @@ class TasksController extends Controller
 
         return redirect('/todo');
     }
+
+    public function updateTasks(Tasks $Task)
+    {
+        if(isset($_GET['taskId'])){
+            $task = Tasks::find($_GET['taskId']);
+            
+            $task->update(['isComplete' => $_GET['checked']]);
+        }else{
+            return redirect('/');
+        }
+    }
 }

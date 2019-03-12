@@ -39,6 +39,8 @@ Route::patch('/task/{task}', 'TasksController@update');
 
 Route::delete('/task/{task}', 'TasksController@destroy');
 
+Route::get('/task/{task}/updateTasks', 'TasksController@updateTasks');
+
 
 /***************
 * GOALS ROUTES *
@@ -53,6 +55,10 @@ Route::post('/goalAdd', 'GoalsController@storeGoal');
 Route::get('/goals', 'GoalsController@index');
 
 Route::get('/goal/{goal}/edit', 'GoalsController@edit');
+
+Route::post('/goal/{goal}/resetGoal', 'GoalsController@resetGoal');
+
+Route::get('/goal/{goal}/updateTasks', 'GoalsController@updateTasks');
 
 Route::patch('/goal/{goal}', 'GoalsController@update');
 
