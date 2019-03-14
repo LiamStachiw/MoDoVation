@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Goals;
 use App\Tasks;
+use Carbon\Carbon;
 use Auth;
 
 class GoalsController extends Controller
@@ -62,10 +63,11 @@ class GoalsController extends Controller
             'goalName' => 'required'
         ]);
 
-        //send the request data for title and body to the database
+        //create the goal with the proper values
         Goals::create([
             'goalName' => request('goalName'),
             'user_id' => Auth::id(),
+            'lastComplete' => Carbon::now(),
             'streakDays' => 0,
             'totalDays' => 0
         ]);
@@ -112,6 +114,7 @@ class GoalsController extends Controller
     public function updateTasks(Goals $goal)
     {
         if(isset($_GET['taskId'])){
+
             $allDone = true;
             $task = Tasks::find($_GET['taskId']);
 
@@ -129,14 +132,36 @@ class GoalsController extends Controller
 
             if($allDone == true)
             {
-                $goal->update([
-                    'totalDays' => $goal->totalDays + 1,
-                    'isComplete' => 1]);
+                
+                $checkDate = new Carbon($goal->lastComplete);
+                $checkDate = $checkDate->addDays(1);
+                
+                if(Carbon::now() > $checkDate)
+                {  
+
+                    $goal->update([
+                        'totalDays' => $goal->totalDays + 1,
+                        'streakDays' => 0,
+                        'lastComplete' => Carbon::now(),
+                        'isComplete' => 1,]);
+
+                }else if (Carbon::now() <= $checkDate){
+
+                    $goal->update([
+                        'totalDays' => $goal->totalDays + 1,
+                        'streakDays' => $goal->streakDays + 1,
+                        'lastComplete' => Carbon::now(),
+                        'isComplete' => 1,]);
+
+                }
 
                 foreach($allTasks as $subTask)
                 {
                     $subTask->update(['isDisabled' => 1]);
                 }
+
+                return('y');
+
             }
         }else{
             return redirect('/');
@@ -155,6 +180,7 @@ class GoalsController extends Controller
         
         $goal->update([
             'totalDays' => $goal->totalDays - 1,
+            'streakDays' => $goal->streakDays - 1,
             'isComplete' => 0]);
 
         return back();

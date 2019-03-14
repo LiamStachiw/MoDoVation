@@ -30,9 +30,20 @@ $(document).ready(function() {
             data: {
                 'taskId':$taskId, 
                 'checked':$checked
+            },
+            success:function(returnCode){
+                checkAllDone(returnCode);
             }
           });
-
-        location.reload();
     });
+
+
+    /* If all tasks are complete, reload the page */
+    function checkAllDone(returnCode){
+
+        if(returnCode == 'y'){
+            location.reload();
+        };
+
+    };
 });
