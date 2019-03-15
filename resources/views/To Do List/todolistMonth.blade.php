@@ -4,7 +4,12 @@
 
 <div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light ">
 
-    <h1 align ="center">Today's To Do List</h1>
+    <h1 align ="center">This Month's To Do List</h1>
+
+    <p>
+    This will be like a calendar View - So you can click on a calendar day, <br> 
+    and it will then take you to an instance of "Today's To Do List", but for the day you clicked from the calendar
+    </p>
 
     <h6 align ="center">This is your list of tasks to complete today. <br>
     Click a task to see what goal it is associated with. <br>
@@ -17,11 +22,6 @@
 
     <ul>
         
-        @foreach ($tasks as $task)
-            @if($task->user_id == Auth::id())
-                @include('To Do List.taskEntry')
-            @endif
-        @endforeach
     
     </ul>
 

@@ -4,9 +4,9 @@
 
 <div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light ">
 
-    <h1 align ="center">Today's To Do List</h1>
+    <h1 align ="center">This Week's To Do List</h1>
 
-    <h6 align ="center">This is your list of tasks to complete today. <br>
+    <h6 align ="center">This is your list of tasks to complete this week. <br>
     Click a task to see what goal it is associated with. <br>
     Complete all tasks associated with your goal today to get a point toward your streaks! <br></h6>
     <button class="btn btn-outline-secondary" onclick="location.href='{{ url('todo') }}'">To Do Today</button>
@@ -17,11 +17,6 @@
 
     <ul>
         
-        @foreach ($tasks as $task)
-            @if($task->user_id == Auth::id())
-                @include('To Do List.taskEntry')
-            @endif
-        @endforeach
     
     </ul>
 

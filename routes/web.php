@@ -41,6 +41,14 @@ Route::delete('/task/{task}', 'TasksController@destroy');
 
 Route::get('/task/{task}/updateTasks', 'TasksController@updateTasks');
 
+Route::get('/week', function () {
+    return view('/To Do List/todolistWeek');
+});
+
+Route::get('/month', function () {
+    return view('/To Do List/todolistMonth');
+});
+
 
 /***************
 * GOALS ROUTES *
