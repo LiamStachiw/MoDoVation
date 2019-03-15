@@ -8,6 +8,8 @@
         @if($task->isDisabled == 1) disabled @endif> 
     <a href="/task/{{ $task->id }} ">
         {{ $task->taskName }} 
+        <br>
+        {{ $task->taskDate }} 
     </a> 
 </li>
 

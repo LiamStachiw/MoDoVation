@@ -64,7 +64,8 @@ class TasksController extends Controller
         //send the request data for title and body to the database
         Tasks::create([
             'taskName' => request('taskName'),
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'taskDate' => request('taskDate')
         ]);
 
         //redirect to the journals home page
@@ -82,7 +83,8 @@ class TasksController extends Controller
         Tasks::create([
             'taskName' => request('taskName'),
             'goal_id' => $goal->id,
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'taskDate' => request('taskDate')
         ]);
 
         return back();
@@ -108,7 +110,7 @@ class TasksController extends Controller
             'taskName' => 'required'
         ]);
 
-        $task->update(request(['taskName']));
+        $task->update(request(['taskName', 'taskDate']));
         
         return redirect('/todo');
 

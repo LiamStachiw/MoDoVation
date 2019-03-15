@@ -19,6 +19,10 @@
             <label for="goalName">Goal Name:</label>
 
             <input class="form-control" id="goalName" name="goalName" value="{{ $goal->goalName }}"/>
+
+            <label for="goalDate">Goal Deadline:</label>
+
+          <input type="date" value="{{ $goal->goalDate }}" class="form-control" id="goalDate" name="goalDate"/>
         </div>
 
         <button type="submit" class="btn btn btn-outline-secondary">Update Goal</button>

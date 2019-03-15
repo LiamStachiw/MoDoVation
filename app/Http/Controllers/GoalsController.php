@@ -69,7 +69,8 @@ class GoalsController extends Controller
             'user_id' => Auth::id(),
             'lastComplete' => Carbon::now(),
             'streakDays' => 0,
-            'totalDays' => 0
+            'totalDays' => 0,
+            'goalDate' => request('goalDate')
         ]);
 
         //redirect to the goals home page
@@ -95,7 +96,7 @@ class GoalsController extends Controller
             'goalName' => 'required'
         ]);
 
-        $goal->update(request(['goalName']));
+        $goal->update(request(['goalName', 'goalDate']));
         
         return redirect('/goals');
 

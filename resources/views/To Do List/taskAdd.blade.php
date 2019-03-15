@@ -18,6 +18,10 @@
           <label for="taskName">Task Name:</label>
 
           <input class="form-control" id="taskName" name="taskName"/>
+
+          <label for="taskDate">Task Date:</label>
+
+          <input type="date" value="<?php print(date("Y-m-d")); ?>" class="form-control" id="taskDate" name="taskDate"/>
         </div>
 
         <button type="submit" class="btn btn-outline-secondary">Add this Task</button>

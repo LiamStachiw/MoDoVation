@@ -22,6 +22,7 @@ class CreateGoalsTable extends Migration
             $table->integer('streakDays');
             $table->integer('totalDays');
             $table->timestamps();
+            $table->date('goalDate')->default(NOW());
         });
     }
 

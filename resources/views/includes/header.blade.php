@@ -76,6 +76,5 @@
             @endguest
 
             
-            
           </div>
         </nav>
