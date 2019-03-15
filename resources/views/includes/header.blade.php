@@ -52,8 +52,11 @@
             <a class="py-2 d-none d-md-inline-block" href="/todo">To Do List</a>
             <a class="py-2 d-none d-md-inline-block" href="/goals">Goals</a>
             <a class="py-2 d-none d-md-inline-block" href="/journals">Journals</a>
-            <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-            <a class="py-2 d-none d-md-inline-block" href="/settings">Settings</a>
+            {{-- <a class="py-2 d-none d-md-inline-block" href="/settings">Settings</a> --}}
+
+            @if(Auth::user())
+            <a class="py-2 d-none d-md-inline-block" href="/profile">{{Auth::user()->name}}</a>
+            @endif
 
             @guest
               <a class="py-2 d-none d-md-inline-block" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -72,9 +75,7 @@
               </form>
             @endguest
 
-            @if(Auth::user())
-            <a class="py-2 d-none d-md-inline-block" href="/home">{{Auth::user()->name}}</a>
-            @endif
+            
             
           </div>
         </nav>

@@ -6,19 +6,27 @@
 
     <h1 align ="center">Today's To Do List</h1>
 
-    <hr>
-
-    <button class="btn btn-outline-secondary" onclick="location.href='{{ url('taskAdd') }}'">Add a Task</button>
+    <h6 align ="center">This is your list of tasks to complete today. <br>
+    Click a task to see what goal it is associated with. <br>
+    Complete all tasks associated with your goal today to get a point toward your streaks! <br></h6>
 
     <hr>
 
     <ul>
+        
         @foreach ($tasks as $task)
             @if($task->user_id == Auth::id())
                 @include('To Do List.taskEntry')
             @endif
         @endforeach
+    
     </ul>
+
+    <hr>
+
+    <button class="btn btn-outline-secondary" onclick="location.href='{{ url('taskAdd') }}'">Add a Task</button>
+    <p>Tasks added here are uncategorized <br>
+        Go to Goals page to add a task to a goal</p>
 
 </div>
 

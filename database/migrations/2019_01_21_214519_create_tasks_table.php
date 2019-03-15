@@ -25,6 +25,7 @@ class CreateTasksTable extends Migration
             // $table->integer('taskPriority'); //Different priority levels for tasks. 1 could be top priority, 3 lowest priority. NOT the same as task order. Multiple items can be priority 1.
             $table->timestamps();
         });
+
     }
 
     /**

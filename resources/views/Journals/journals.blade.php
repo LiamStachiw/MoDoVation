@@ -6,6 +6,9 @@
 
     <h1 align ="center">Journals</h1>
 
+    <h6>Reflect on the progress you're making by writing journal entries. <br>
+        Record and Re-read journals regularly to reflect on how you can improve your progress towards your goals!</h6>
+
     <!--
     <hr>
 

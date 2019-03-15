@@ -6,7 +6,13 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
         <h1 class="display-4 font-weight-normal">MoDoVation</h1>
         <p class="lead font-weight-normal">A productivity tool to help you set goals and work towards achieving them.</p>
-        <a class="btn btn-outline-secondary" href="#">Register</a>
+        
+        @guest
+            @if (Route::has('register'))
+                <a class="btn btn-outline-secondary" href="/register">Register</a>
+            @endif
+        @endguest
+
         </div>
     </div>
     

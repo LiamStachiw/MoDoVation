@@ -6,6 +6,11 @@
 
     <h1 align ="center">Your Goals</h1>
 
+    <h6 align ="center">
+        Add Goals you want to pursue. <br> 
+        Then, add a tasks you want to complete today that will count towards these goals. 
+    </h6>
+
     <hr>
 
     <button class="btn btn-outline-secondary" onclick="location.href='{{ url('goalAdd') }}'">Add a Goal</button>
