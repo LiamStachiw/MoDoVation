@@ -15,7 +15,9 @@ class GoalsController extends Controller
 
             $goals = Goals::latest()->get();
 
-            return view('/Goals/goals', compact('goals'));
+            $tasks = Tasks::all();
+
+            return view('/Goals/goals', compact('goals', 'tasks'));
 
         }else{
             return view('/auth/login');        

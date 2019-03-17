@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tasks;
 use App\Goals;
+use Carbon\Carbon;
 use Auth;
 
 class TasksController extends Controller
@@ -13,7 +14,9 @@ class TasksController extends Controller
         if(Auth::check()){
             $tasks = Tasks::latest()->get();
 
-            return view('/To Do List/todolist', compact('tasks'));
+            $goals = Goals::all();
+
+            return view('/To Do List/todolist', compact('tasks', 'goals'));
 
         }else{
             return view('/auth/login');        
@@ -25,7 +28,9 @@ class TasksController extends Controller
     {
         if(Auth::check()){
 
-            return view('To Do List/taskAdd');
+            $goals = Goals::all();
+
+            return view('To Do List/taskAdd', compact('goals'));
 
         }else{
             return view('/auth/login');        
@@ -65,6 +70,7 @@ class TasksController extends Controller
         Tasks::create([
             'taskName' => request('taskName'),
             'user_id' => Auth::id(),
+            'goal_id' => request('goalName'),
             'taskDate' => request('taskDate')
         ]);
 

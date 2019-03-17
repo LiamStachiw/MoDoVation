@@ -19,6 +19,16 @@
 
           <input class="form-control" id="taskName" name="taskName"/>
 
+          <label for="goalName">Associated Goal:</label>
+
+          <select class="form-control" id="goalName" name="goalName">
+              @foreach ($goals as $goal)
+                @if($goal->user_id == Auth::id())
+                <option value="{{ $goal->id }}"> {{ $goal->goalName }} </option>
+                @endif
+              @endforeach
+          </select>
+
           <label for="taskDate">Task Date:</label>
 
           <input type="date" value="<?php print(date("Y-m-d")); ?>" class="form-control" id="taskDate" name="taskDate"/>
