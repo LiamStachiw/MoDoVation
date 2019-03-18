@@ -9,9 +9,9 @@
     <h6 align ="center">This is your list of tasks to complete today. <br>
     Click a task to see what goal it is associated with. <br>
     Complete all tasks associated with your goal today to get a point toward your streaks! <br></h6>
-    <button class="btn btn-outline-secondary" onclick="location.href='{{ url('todo') }}'">To Do Today</button>
+    {{-- <button class="btn btn-outline-secondary" onclick="location.href='{{ url('todo') }}'">To Do Today</button>
     <button class="btn btn-outline-secondary" onclick="location.href='{{ url('week') }}'">To Do This Week</button>
-    <button class="btn btn-outline-secondary" onclick="location.href='{{ url('month') }}'">To Do This Month</button>
+    <button class="btn btn-outline-secondary" onclick="location.href='{{ url('month') }}'">To Do This Month</button> --}}
 
     <hr>
 
