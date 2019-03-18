@@ -19,9 +19,11 @@
 
     <ul>
         @foreach ($goals as $goal)
+        <div class="card">
             @if($goal->user_id == Auth::id())
                 @include('Goals.goalEntry')
             @endif
+        </div><br>
         @endforeach
     </ul>
 

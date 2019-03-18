@@ -181,10 +181,27 @@ class GoalsController extends Controller
             $subTask->update(['isDisabled' => 0]);
         }
         
-        $goal->update([
-            'totalDays' => $goal->totalDays - 1,
-            'streakDays' => $goal->streakDays - 1,
-            'isComplete' => 0]);
+        if($goal->totalDays == 0 && $goal->streakDays == 0){
+            $goal->update([
+                'totalDays' => 0,
+                'streakDays' => 0,
+                'isComplete' => 0]);
+        }else if($goal->totalDays == 0){
+            $goal->update([
+                'totalDays' => 0,
+                'streakDays' => $goal->streakDays - 1,
+                'isComplete' => 0]);
+        }else if($goal->streakDays == 0){
+            $goal->update([
+                'totalDays' => $goal->totalDays - 1,
+                'streakDays' => 0,
+                'isComplete' => 0]);
+        }else{
+            $goal->update([
+                'totalDays' => $goal->totalDays - 1,
+                'streakDays' => $goal->streakDays - 1,
+                'isComplete' => 0]);
+        }
 
         return back();
     }

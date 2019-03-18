@@ -14,23 +14,33 @@
         if it has been less than 24 hours from the last completion, 
         checking off will increase streak by 1.
     --}}
+    <div class="card">
+        @include('Goals.goalEntry')
+        
+        <div class="card-body">
+            <form method="POST" id="{{$goal->id}}" class="listOfTasks" action="/goal/{{$goal->id}}/resetGoal">
+                @csrf
+                @foreach ($tasks as $task) 
+                    @if($task->goal_id == $goal->id)
+                    <hr>
+                        @include('\To Do List.taskEntry')
+                    <br>
+                    @endif 
+                @endforeach
+            <hr>
+        </div>
 
-    <h1> {{ $goal->goalName }} </h1>
-    <i>Your current streak for this goal is {{ $goal->streakDays }} days.</i><br>
-    <i>Your total days completed for this goal is {{ $goal->totalDays }} days.</i>
-    <div class="">
-        <form method="POST" id="{{$goal->id}}" class="listOfTasks" action="/goal/{{$goal->id}}/resetGoal">
-            @csrf
-            @foreach ($tasks as $task) 
-                @if($task->goal_id == $goal->id)
-                    @include('\To Do List.taskEntry')
-                @endif 
-            @endforeach
-            @if($goal->isComplete == 1)
-                <button type="submit" class="btn btn-outline-primary">Reset This Goal</button>
-            @endif
-        </form>
+        <div class="card-footer">
+            <p style="display: inline">Current Streak for <em>{{ $goal->goalName }}</em>: {{ $goal->streakDays }} days. </p>
+            
+            <p style="display: inline; padding-left: 25px"> Total days complete for <em>{{ $goal->goalName }}</em>: {{ $goal->totalDays }} days.</p>
+        </div>           
     </div>
+    <br>
+    @if($goal->isComplete == 1)
+            <button type="submit" class="btn btn-outline-primary">Reset This Goal</button>
+        @endif
+    </form>
     <hr>
 
     <form action="/goal/{{$goal->id}}/edit">

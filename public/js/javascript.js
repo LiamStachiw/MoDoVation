@@ -37,6 +37,9 @@ $(document).ready(function() {
           });
     });
 
+    $('form').submit(function() {
+        $(this).find("button[type='submit']").prop('disabled',true).text("Loading, Please Wait...");
+    });
 
     /* If all tasks are complete, reload the page */
     function checkAllDone(returnCode){

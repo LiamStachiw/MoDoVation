@@ -15,34 +15,36 @@
 
     <hr>
 
-    <ul>
-        @foreach ($goals as $goal)
-            @if($goal->user_id == Auth::id())
-                @include('Goals.goalEntry')
-
-                <p>Current Streak for "{{ $goal->goalName }}": {{ $goal->streakDays }} days.
-                <br>
-                    Total days complete for "{{ $goal->goalName }}": {{ $goal->totalDays }} days.
-            </p>
-
-                <ul>
-
-                @foreach ($tasks as $task)
-                    @if($task->goal_id == $goal->id)
-                        @include('To Do List.taskEntry')
-                    @endif
-                @endforeach
-
-                </ul>
-
+    @foreach ($goals as $goal)
+   
+        @if($goal->user_id == Auth::id())
+        <div class="card">
+            @include('Goals.goalEntry')
+            
+            <div class="card-body">
+            @foreach ($tasks as $task)
+                @if($task->goal_id == $goal->id)
+                    <hr>
+                    @include('To Do List.taskEntry')
+                    <br>
+                @endif
+            @endforeach
                 <hr>
+            </div>
 
-            @endif
-        @endforeach
+            <div class="card-footer">
+                <p style="display: inline">Current Streak for <em>{{ $goal->goalName }}</em>: {{ $goal->streakDays }} days. </p>
+                
+                <p style="display: inline; padding-left: 25px"> Total days complete for <em>{{ $goal->goalName }}</em>: {{ $goal->totalDays }} days.</p>
+            </div>           
+        </div>
+        @endif
+    
+    <br>
+    @endforeach
 
        
     
-    </ul>
 
     <hr>
 
