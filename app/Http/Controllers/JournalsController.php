@@ -108,7 +108,7 @@ class JournalsController extends Controller
     {
         if(Auth::check()){  
 
-            return view('journals.edit', compact('journal'));
+            return view('Journals.edit', compact('journal'));
 
         }else{
             return view('/auth/login');        
