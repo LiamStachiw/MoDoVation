@@ -88,8 +88,7 @@ class TasksController extends Controller
         Tasks::create([
             'taskName' => request('taskName'),
             'goal_id' => $goal->id,
-            'user_id' => Auth::id(),
-            'taskDate' => request('taskDate')
+            'user_id' => Auth::id()
         ]);
 
         return back();
@@ -115,7 +114,7 @@ class TasksController extends Controller
             'taskName' => 'required'
         ]);
 
-        $task->update(request(['taskName', 'taskDate']));
+        $task->update(request(['taskName']));
         
         return redirect('/todo');
 
