@@ -70,8 +70,7 @@ class TasksController extends Controller
         Tasks::create([
             'taskName' => request('taskName'),
             'user_id' => Auth::id(),
-            'goal_id' => request('goalName'),
-            'taskDate' => request('taskDate')
+            'goal_id' => request('goalName')
         ]);
 
         //redirect to the journals home page
