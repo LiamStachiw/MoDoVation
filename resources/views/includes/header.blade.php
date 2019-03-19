@@ -40,12 +40,16 @@
 
     <!-- Custom styles for prodcuts template -->
     <link href="/css/product.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </head>
 
   <body>
 
       <nav class="site-header sticky-top py-1">
           <div class="container d-flex flex-column flex-md-row justify-content-between">
+
             <a class="py-2" href="/"><img src="/images/MDVLogo.png" alt="Logo" width="66" height="24"></a>
             <a class="py-2 d-none d-md-inline-block" href="/todo">To Do List</a>
             <a class="py-2 d-none d-md-inline-block" href="/goals">Goals</a>
@@ -72,6 +76,54 @@
                   @csrf
               </form>
             @endguest
+
+
+            <div class="pos-f-t">
+              <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                  <h5 class="text-white h4">Menu</h5>
+                    <ul class="list-unstyled text-small">
+
+                        
+
+                      @if(Auth::user())
+                      <li><a class="py-2  d-md-inline-block" href="/profile">{{Auth::user()->name}}</a></li>
+                      @endif
+          
+                      @guest
+                      <li><a class="py-2 d-md-inline-block" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        @if (Route::has('register'))
+                        <li><a class="py-2  d-md-inline-block" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                        @endif
+                        @else
+                        <li><a class="py-2  d-md-inline-block" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a></li>
+          
+                        <li><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form></li>
+                      @endguest
+
+                      <hr>
+
+                      <li><a class="py-2" href="/">Home</a></li>
+                      <li><a class="py-2 d-md-inline-block" href="/todo">To Do List</a></li>
+                      <li><a class="py-2 d-md-inline-block" href="/goals">Goals</a></li>
+                      <li><a class="py-2  d-md-inline-block" href="/journals">Journals</a></li>
+                      
+
+                    </ul>
+                </div>
+              </div>
+              <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </nav>
+            </div>
 
             
           </div>

@@ -8,12 +8,6 @@
       <img src="/images/MDVLogoAlt.png" alt="Logo" width="66" height="24">
       <small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
       </div>
-      <div class="col-6 col-md">
-        <h5>Settings</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="/settings">Settings & Prefrences</a></li>
-        </ul>
-      </div>
       
       <div class="col-9 col-md">
         <h5>About</h5>
