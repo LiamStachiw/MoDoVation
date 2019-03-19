@@ -24,6 +24,8 @@ $(document).ready(function() {
 
         };
 
+        $('.taskCheckbox').attr("disabled", true);
+
         $.ajax({
             type: "GET",
             url: $url,
@@ -46,6 +48,8 @@ $(document).ready(function() {
 
         if(returnCode == 'y'){
             location.reload();
+        }else if(returnCode == 'n'){
+            $('.taskCheckbox').attr("disabled", false);
         };
 
     };

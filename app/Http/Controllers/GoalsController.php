@@ -165,6 +165,8 @@ class GoalsController extends Controller
 
                 return('y');
 
+            }else{
+                return('n');
             }
         }else{
             return redirect('/');
