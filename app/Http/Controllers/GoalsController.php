@@ -83,7 +83,7 @@ class GoalsController extends Controller
     {
         if(Auth::check()){
 
-            return view('goals.edit', compact('goal'));
+            return view('Goals.edit', compact('goal'));
 
         }else{
             return view('/auth/login');        

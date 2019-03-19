@@ -19,10 +19,6 @@
             <label for="taskName">Task Name:</label>
 
             <input class="form-control" id="taskName" name="taskName" value="{{ $task->taskName }}"/>
-
-            <label for="taskDate">Task Date:</label>
-
-          <input type="date" value="{{ $task->taskDate }}" class="form-control" id="taskDate" name="taskDate"/>
         </div>
 
         <button type="submit" class="btn btn-outline-secondary">Update Task</button>
