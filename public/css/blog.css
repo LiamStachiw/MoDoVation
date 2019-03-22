@@ -62,8 +62,8 @@
     margin-bottom: 0;
   }
 
-  input[type="checkbox"]{
-    /* Double-sized Checkboxes */
+  .resize-check{
+    /* Resized Checkboxes */
     -ms-transform: scale(2.5); /* IE */
     -moz-transform: scale(2.5); /* FF */
     -webkit-transform: scale(2.5); /* Safari and Chrome */
