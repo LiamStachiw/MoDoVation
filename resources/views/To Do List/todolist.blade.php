@@ -15,42 +15,38 @@
 
     <hr>
 
-    @foreach ($goals as $goal)
-   
-        @if($goal->user_id == Auth::id())
-        <div class="card">
-            @include('Goals.goalEntry')
-            
-            <div class="card-body">
-            @foreach ($tasks as $task)
-                @if($task->goal_id == $goal->id)
-                    <hr>
-                    @include('To Do List.taskEntry')
-                    <br>
-                @endif
-            @endforeach
-                <hr>
-            </div>
-
-            <div class="card-footer">
-                <p style="display: inline">Current Streak for <em>{{ $goal->goalName }}</em>: {{ $goal->streakDays }} days. </p>
+    <div class="content">
+        @foreach ($goals as $goal)
+            @if($goal->user_id == Auth::id())
+            <div class="card">
+                @include('Goals.goalEntry')
                 
-                <p style="display: inline; padding-left: 25px"> Total days complete for <em>{{ $goal->goalName }}</em>: {{ $goal->totalDays }} days.</p>
-            </div>           
-        </div>
-        @endif
-    
-    <br>
-    @endforeach
+                <div class="card-body">
+                @foreach ($tasks as $task)
+                    @if($task->goal_id == $goal->id)
+                        <hr>
+                        @include('To Do List.taskEntry')
+                        <br>
+                    @endif
+                @endforeach
+                    <hr>
+                </div>
 
+                <div class="card-footer">
+                    <p style="display: inline">Current Streak for <em>{{ $goal->goalName }}</em>: {{ $goal->streakDays }} days. </p>
+                    
+                    <p style="display: inline; padding-left: 25px"> Total days complete for <em>{{ $goal->goalName }}</em>: {{ $goal->totalDays }} days.</p>
+                </div>           
+            </div>
+            <br>
+            @endif
+        @endforeach
+    </div>
        
-    
-
     <hr>
 
     <button class="btn btn-outline-secondary" onclick="location.href='{{ url('taskAdd') }}'">Add a Task</button>
-    <p>Tasks added here are uncategorized <br>
-        Go to Goals page to add a task to a goal</p>
+    <p>You will be prompted to select a goal to add the task to.</p>
 
 </div>
 

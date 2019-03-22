@@ -2,7 +2,7 @@
 
 @section ('content')
 <div align="center" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light ">
-<h1 align="center">Profile & Settings</h1>
+<h1 align="center">Your Profile</h1>
 <hr>
 
 {{-- <p align="center">

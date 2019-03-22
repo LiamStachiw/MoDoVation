@@ -16,16 +16,15 @@
     <button class="btn btn-outline-secondary" onclick="location.href='{{ url('goalAdd') }}'">Add a Goal</button>
 
     <hr>
-
-    <ul>
+    <div class="content">
         @foreach ($goals as $goal)
-        <div class="card">
             @if($goal->user_id == Auth::id())
-                @include('Goals.goalEntry')
+                <div class="card">           
+                    @include('Goals.goalEntry')
+                </div><br>
             @endif
-        </div><br>
         @endforeach
-    </ul>
+    </div>
 
 </div>
 
